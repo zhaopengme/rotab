@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <title>{{ .generalTitle }}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="manifest" href="site.webmanifest">
+    <!-- favicon.ico in the root directory -->
+    <link rel="apple-touch-icon" href="icon.png">
+
+    <meta name="theme-color" content="#fb6340">
+
+    <link href="/themes/default/css/styles.css?2f93033f023a7e05482f" rel="stylesheet">
+</head>
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+<body class="bg-gray-200">
+<!--[if IE]>
+<div class="p-3 bg-light">
+    <div class="container">
+        <p class="mb-0 browserupgrade">
+            You are using an <strong>outdated</strong> browser.
+            Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.
+        </p>
+    </div>
+</div>
+<![endif]-->
+
+<header class="flex bg-white border-b border-gray-200 top-0 fixed inset-x-0 z-50 h-30 font-sans">
+    <div class="w-full relative py-3">
+        <div class="container mx-auto">
+            <div class="flex justify-center items-baseline">
+                <div class="logo">
+                    <a href="/"><h1 class="text-3xl">{{ .generalTitle }}</h1></a>
+                </div>
+                <p class="desc ml-4 text-gray-600">
+                    {{ .generalDescription }}
+                </p>
+            </div>
+            <div class="flex justify-center mt-2">
+                <nav class="flex">
+                    {{$navs := (getNavs)}}
+                    {{if getNavs}}
+                        {{range $key, $nav := $navs}}
+                            <a href="{{$nav.url}}" class="mx-4 text-gray-800 hover:text-gray-600 transition hover:-translateY-sm">{{$nav.title}}</a>
+                        {{end}}
+                    {{else }}
+                        <a href="/"
+                           class="mx-4 text-gray-800 hover:text-gray-600 transition hover:-translateY-sm">Index</a>
+                    {{end}}
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>

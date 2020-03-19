@@ -1,0 +1,37 @@
+<div class="text-lg font-bold text-gray-700">Leave a comment</div>
+<div class="text-sm text-gray-500">Your email address will not be published. Required fields are marked
+    *
+</div>
+<form action="/comment" method="post">
+    <input type="hidden" name="parent_comment_id" value="{{.comment.id}}">
+    <input type="hidden" name="article_id" value="{{.post.id}}">
+    <input type="hidden" name="page_url" value="/article/{{.post.id}}">
+    <div class="my-4">
+        <textarea name="content"
+                                  class="w-full border border-gray-300 focus:outline-none focus:shadow-outline px-3 py-1"
+                                  placeholder="Type your comment…" required="required"></textarea>
+    </div>
+    <div class="flex flex-wrap">
+        <div class="w-full md:w-1/3 mb-4">
+            <input type="text" name="author_name" value="{{.Cookie.author_name}}"
+                   class="w-full border border-gray-300 focus:outline-none focus:shadow-outline px-3 py-1"
+                   placeholder="Name *" required="required"></input>
+        </div>
+        <div class="w-full md:w-1/3 mb-4 md:px-4">
+            <input type="email" name="author_email" value="{{.Cookie.author_email}}"
+                   class="w-full border border-gray-300 focus:outline-none focus:shadow-outline px-3 py-1"
+                   placeholder="Email *" required="required"></input>
+        </div>
+        <div class="w-full  md:w-1/3 mb-4">
+            <input type="url" name="author_url" value="{{.Cookie.author_url}}"
+                   class="w-full border border-gray-300 focus:outline-none focus:shadow-outline px-3 py-1"
+                   placeholder="Website"></input>
+        </div>
+    </div>
+    <div class="mt-0">
+        <button type="submit"
+                class="border mx-1 px-2 py-2 font-bold bg-black text-white rounded hover:opacity-75">
+            Submit
+        </button>
+    </div>
+</form>

@@ -1,0 +1,77 @@
+{{ include (themeFile "inc/header.html")}}
+
+<article class="w-full ">
+    <div class="relative bg-black text-white w-full"
+         style="height: 100vh;height: calc(100vh - 64px);min-height: 400px;max-height: 560px;">
+        <img
+                src="https://api.ixiaowai.cn/gqapi/gqapi.php"
+                class="h-full w-full object-cover absolute inset-0">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="relative inset-0 h-full pt-24">
+            <div class="flex flex-col items-center justify-center h-full">
+                <div class="meta">
+                    <a class="text-sm font-bold text-gray-400 hover:text-gray-200" href="#">Coldest,</a>
+                    <a class="text-sm font-bold text-gray-400 hover:text-gray-200" href="#">Sunset</a>
+                </div>
+                <h2 class="text-4xl font-bold text-white"> {{.post.title}}</h2>
+                <div class="author">
+                    <span class="text-sm text-gray-500">By</span>
+                    <a class="text-sm text-gray-400 hover:text-gray-200" href="#">zhaopeng</a>
+                    <time class="text-sm text-gray-500">June 3, 2019</time>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="relative">
+        <div class="container  mx-auto mt-12 text-2xl">
+            <div class="post-content bg-white px-5 py-3  tw-clearfix leading-relaxed ">
+                <p>{{.post.htmlcontent}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="flex">
+        <div class="container mx-auto m-4">
+            <div class="block">
+                {{if (getPrevPost .post.id) }}
+                    <div class="w-full md:w-1/2 float-left pr-2">
+                        <div class="prev-post px-5 py-3 bg-white">
+                            <a href="/article/{{(getPrevPost .post.id).id}}">
+                                <div class="text-sm uppercase text-gray-500">Prev Post</div>
+                                <div class="text-lg text-gray-700 hover:text-gray-900">{{(getPrevPost .post.id).title}}</div>
+                            </a>
+                        </div>
+                    </div>
+                {{end}}
+
+                {{if (getNextPost .post.id) }}
+                    <div class="w-full md:w-1/2 float-right pl-2">
+                        <div class="prev-post px-5 py-3 bg-white text-right">
+                            <a href="/article/{{(getNextPost .post.id).id}}">
+                                <div class="text-sm uppercase text-gray-500">Next Post</div>
+                                <div class="text-lg font-bold text-gray-700 hover:text-gray-900">{{(getNextPost .post.id).title}}</div>
+                            </a>
+                        </div>
+                    </div>
+                {{end}}
+            </div>
+        </div>
+    </div>
+
+    <div class="flex">
+        <div class="container mx-auto m-4">
+            <div class="w-full px-5 py-3 bg-white">
+                {{ include (themeFile "inc/comment/list.html") (mergeObj "post" .post "Cookie" .Cookie)}}
+                {{ include (themeFile "inc/comment/reply.html") (mergeObj "post" .post "Cookie" .Cookie)}}
+            </div>
+        </div>
+    </div>
+</article>
+
+{{ include (themeFile "inc/footer.html")}}
+
+<script>
+    $('.reply-btn').on('click', function () {
+        var id = $(this).data('id');
+        $('.reply-area[data-id="' + id + '"]').toggleClass('hidden');
+    })
+</script>

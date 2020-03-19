@@ -1,0 +1,18 @@
+server:
+  Address: ':8199'
+  ServerRoot: ./
+  IndexFiles:
+    - index.html
+  AccessLogEnabled: false
+  ErrorLogEnabled: false
+  LogPath: ./ServerLog
+  SessionIdName: rotabSessionId
+  SessionMaxAge: 24h
+jwt:
+  whiteUrls:
+    - /admin/login
+database:
+  default:
+    - type: sqlite
+      link: /Users/zhaopeng/rotab.db
+      debug: true

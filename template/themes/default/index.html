@@ -1,0 +1,98 @@
+{{ include (themeFile "inc/header.html")}}
+
+<section class="flex mt-10 pt-24">
+    <div class="container mx-auto">
+        <div class="flex flex-wrap">
+            {{range $key, $post := .posts.Data}}
+                <div class="w-full md:w-1/2 lg:w-1/3 p-2 ">
+                    <div class="w-full bg-white">
+                        <div class="relative cursor-pointer">
+                            <img src="https://api.ixiaowai.cn/gqapi/gqapi.php?t={{$post.id}}" alt="{{$post.title}}">
+                            <div class="absolute inset-0 opacity-0 hover:opacity-90">
+                                <div class="flex flex-col items-center justify-center h-full">
+                                    <a href="/article/{{$post.id}}" class="uppercase text-white"
+                                       title="{{$post.title}}">read more</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-6 py-4">
+                            {{if $post.tags}}
+                                {{$tags:=(strSplit $post.tags ",")}}
+                                <div class="meta hidden">
+                                    {{range $k, $tag := $tags}}
+                                        <a class="text-sm text-gray-600 hover:text-gray-800 cursor-pointer">{{$tag}},</a>
+                                    {{end}}
+                                </div>
+                            {{end}}
+                            <div class="meta">
+                                <a href="/category/{{$post.category_id}}/" class="text-sm text-gray-600 hover:text-gray-800">{{$post.ctitle}}</a>
+                            </div>
+                            <div class="title my-1">
+                                <a class="font-bold text-xl text-gray-800 hover:text-gray-600"
+                                   href="/article/{{$post.id}}">{{$post.title}}</a>
+                            </div>
+                            <div class="author">
+                                <span class="text-sm text-gray-600">By</span>
+                                <a class="text-sm text-gray-600 hover:text-gray-800 cursor-pointer">{{$post.nickname}}</a>
+                                <time class="text-sm text-gray-600 hover:text-gray-800 cursor-pointer">{{$post.created_at}}</time>
+                            </div>
+                            <div class="absctrat mt-2">
+                                <p class="text-gray-700 text-base">
+                                    {{$post.htmlcontent  | text | strlimit 100  "..."}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {{end}}
+
+        </div>
+    </div>
+</section>
+{{ if gt .posts.TotalPage 1}}
+
+    <div class="flex mt-10 mb-20">
+        <div class="container mx-auto">
+            <div class="mt-8 text-center">
+                <div class="inline-flex bg-white rounded-full shadow text-xs font-bold">
+
+                    {{ if .posts.HasPrev }}
+                        <div class="border-r mr-1 pr-1">
+                            <a href="{{getPageLink .posts.PrevPage .}}" rel="prev"
+                               class="no-underline text-black px-2 py-2 text-lg inline-flex items-center uppercase transition hover:-translateY-sm">
+                                <span class="text-xs">Prev</span>
+                            </a>
+                        </div>
+                    {{end}}
+
+                    <div class="hidden md:flex items-center">
+                        {{ if .posts.HasPrev }}
+                            <a href="{{getPageLink .posts.PrevPage .}}"
+                               class="no-underline mx-1 px-2 py-2 text-black font-bold hover:bg-black hover:text-white rounded transition hover:-translateY-sm">{{.posts.PrevPage}}</a>
+                        {{end}}
+                        <a
+                                class="no-underline mx-1 px-2 py-2 text-black font-bold bg-black text-white rounded  cursor-pointer">{{.posts.Page}}</a>
+                        <button class="hidden mx-1 px-2 py-2 text-black font-bold hover:bg-black hover:text-white rounded transition hover:-translateY-sm">
+                            ...
+                        </button>
+                        {{ if .posts.HasNext }}
+                            <a href="{{getPageLink .posts.NextPage .}}"
+                               class="no-underline mx-1 px-2 py-2 text-black font-bold hover:bg-black hover:text-white rounded transition hover:-translateY-sm">{{.posts.NextPage}}</a>
+                        {{end}}
+                    </div>
+
+                    {{ if .posts.HasNext }}
+                        <div class="md:border-l md:pl-1 md:ml-1">
+                            <a href="{{getPageLink .posts.NextPage .}}" rel="next"
+                               class="no-underline text-black px-2 py-2 text-lg inline-flex items-center uppercase transition hover:-translateY-sm">
+                                <span class="text-xs">Next</span>
+                            </a>
+                        </div>
+                    {{end}}
+                </div>
+            </div>
+        </div>
+    </div>
+{{ end }}
+
+{{ include (themeFile "inc/footer.html")}}

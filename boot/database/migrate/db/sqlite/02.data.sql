@@ -1,0 +1,1 @@
+INSERT INTO rotab_users ( created_at, updated_at, deleted_at, username, nickname, password, email, salt) VALUES ( '1575890999000', null, null, 'zhaopeng', 'peng', '2b9cdebb444dbb2fe8380860104f0573', 'i@qq.com', '12345');

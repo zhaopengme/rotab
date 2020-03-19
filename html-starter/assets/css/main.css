@@ -1,0 +1,16 @@
+/* purgecss start ignore */
+@tailwind  base;
+@tailwind  components;
+/* purgecss end ignore */
+
+@tailwind  utilities;
+
+.transition {
+  -webkit-transition: all .15s ease;
+  transition: all .15s ease;
+}
+
+.hover\:-translateY-sm:hover {
+  -webkit-transform: translateY(-2px);
+  transform: translateY(-2px);
+}

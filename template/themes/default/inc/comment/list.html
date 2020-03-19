@@ -1,0 +1,11 @@
+{{$comments := (getComments .post.id .comment.id)}}
+{{$post := .post}}
+{{$Cookie := .Cookie}}
+{{if $comments}}
+    {{ if not .comment}}
+    <div class="text-lg font-bold text-gray-700">Join the conversation</div>
+    {{end}}
+    {{range $key, $comment := $comments}}
+        {{ include (themeFile "inc/comment/comment.html") (mergeObj "comment" $comment "post" $post "Cookie" $Cookie)}}
+    {{end}}
+{{end}}
