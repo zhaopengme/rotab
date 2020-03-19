@@ -1,14 +1,16 @@
-# rotab-基于 goframe 的 golang 博客，
+# rotab 基于 goframe 的 golang 博客，
 
-rotab-基于 goframe 的 golang 博客，功能模仿 wordpress,没有 wp 强大，关键是 golang 语言决定的。
+rotab 基于 goframe 的 golang 博客，功能模仿 wordpress,没有 wp 强大，关键是 golang 语言决定的。
 
 ## 功能
 
 完整的一个博客系统,支持标签 分类 评论 评论审核 评论无线嵌套 主题等
 
+## 在线试用
+
+[[首页](https://rotab.zhaopeng.me)](https://rotab.zhaopeng.me)
 
 ## 预览
-
 
 首页
 
@@ -27,6 +29,7 @@ rotab-基于 goframe 的 golang 博客，功能模仿 wordpress,没有 wp 强大
 ### 后台
 
 基于 goframe 来实现,轻量级的封装 mvc,让从其他语言转到 golang 的同学们感觉到熟悉的面孔,包含 `controller` `service` `dao`.
+
 
 ### 页面渲染
 
