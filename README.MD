@@ -8,9 +8,14 @@ rotab 基于 goframe 的 golang 博客，功能模仿 wordpress,没有 wp 强大
 
 完整的一个博客系统,支持标签 分类 评论 评论审核 评论无线嵌套 主题等
 
+
+> 为了开发方便,目前数据库使用 sqlite,可以很容易的切换到其他关系型数据库.
+
 ## 在线试用
 
-[[首页](https://rotab.zhaopeng.me)](https://rotab.zhaopeng.me)
+[https://rotab.zhaopeng.me](https://rotab.zhaopeng.me)
+
+> 数据库使用 sqlite, 服务器在国外,也没有加缓存,所以国内打开会比较慢.
 
 ## 预览
 
