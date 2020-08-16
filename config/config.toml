@@ -19,7 +19,7 @@
 
 # Database.
 [database]
-    link  = "mysql:root:12345678@tcp(127.0.0.1:3306)/test"
+    link  = "sqlite:/Users/zhaopeng/Documents/rotab.db"
     debug = true
     # Database logger.
     [database.logger]
