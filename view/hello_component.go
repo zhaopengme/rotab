@@ -1,14 +1,17 @@
 package main
 
-func HelloInit() {
-	Register("hello", New)
-}
+import "github.com/gogf/gf/frame/g"
+
 
 type HelloComponent struct {
 }
 
 func (c *HelloComponent) Render(name string) string {
-	return "hello " + name
+	content := `{{.name}} says nihao {{gowire "demo"}}`
+	result1, _ := g.View().ParseContent(content, g.Map{
+		"name": name,
+	})
+	return result1
 }
 
 func New() *HelloComponent {
