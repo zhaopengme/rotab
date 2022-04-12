@@ -2922,10 +2922,10 @@ detect-node@^2.0.4:
   resolved "https://registry.npm.taobao.org/detect-node/download/detect-node-2.0.4.tgz#014ee8f8f669c5c58023da64b8179c083a28c46c"
   integrity sha1-AU7o+PZpxcWAI9pkuBecCDooxGw=
 
-diff-match-patch@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/diff-match-patch/-/diff-match-patch-1.0.4.tgz#6ac4b55237463761c4daf0dc603eb869124744b1"
-  integrity sha512-Uv3SW8bmH9nAtHKaKSanOQmj2DnlH65fUpcrMdfdaOxUG02QQ4YGZ8AE7kKOMisF7UqvOlGKVYWRvezdncW9lg==
+diff-match-patch@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/diff-match-patch/-/diff-match-patch-1.0.5.tgz#abb584d5f10cd1196dfc55aa03701592ae3f7b37"
+  integrity sha512-IayShXAgj/QMXgB0IWmKx+rOPuGMhqm5w6jvFxmVenXKIzRqTAAsbBPT3kWQeGANj3jGgvcvv4yK6SxqYmikgw==
 
 diffie-hellman@^5.0.0:
   version "5.0.3"
@@ -8409,12 +8409,12 @@ vary@~1.1.2:
   resolved "https://registry.npm.taobao.org/vary/download/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
 
-vditor@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/vditor/-/vditor-2.0.3.tgz#1e2cfb244ecf2861c6e75857d17773ca7219e34f"
-  integrity sha512-JRfTY/4ldlyl4RANdbzDh84rnbger/EKJi/4O+YZD5C8RUJTMYGLgfrq0U8ccjTENAAQfoukU6RHthNrv2wkLA==
+vditor@^3.8.13:
+  version "3.8.13"
+  resolved "https://registry.yarnpkg.com/vditor/-/vditor-3.8.13.tgz#9f4a549fd559e14fe65cc188ceadba61051db57c"
+  integrity sha512-vp6OF1n9wIduKtLvvTYtn+7Gr1Az6MqDIEBpLzik+PTQ208YjrcQ+Ba4AHXMMvJgDtbYP3PdY8OixWKecFzo2A==
   dependencies:
-    diff-match-patch "^1.0.4"
+    diff-match-patch "^1.0.5"
 
 vendors@^1.0.0:
   version "1.0.3"
